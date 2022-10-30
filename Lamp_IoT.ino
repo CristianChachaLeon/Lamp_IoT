@@ -212,19 +212,3 @@ void TaskControlLED(void *pvParameters) {
     memset (data_MQTT, '\0', 8);
   }
 }
-
-int countDigits (char * array_data) {
-  int count = 0;
-  int index = 0;
-  while ( array_data[index] != '\0') {
-
-    if (isdigit(array_data[index])) {
-      count++;
-    } else {
-      break;
-    }
-  }
-
-
-  return count;
-}
