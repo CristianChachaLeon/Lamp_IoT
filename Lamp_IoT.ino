@@ -122,8 +122,8 @@ void loop() {
 //      FastLED.setBrightness(0);
 //      FastLED.show();
       
-      client.publish("brillo", "0");  //Publica
-      client.publish("color", "#FFFFFF");  //Publica
+      client.publish("brillo", "0");  //Public for APP Dashboard
+      client.publish("color", "#FFFFFF"); //Public for APP Dashboard
       Estado_Lamp = ReceiveData;
       Serial.println("Estado: Recibir datos");
 
@@ -194,7 +194,7 @@ void TaskControlLED(void *pvParameters) {
         leds[i] = CRGB(red, green, blue);
       }
       
-      client.publish("color",(char *) data_MQTT);  //Publica
+      client.publish("color",(char *) data_MQTT);  //Public for APP Dashboard
 
     } else {
       int brightness;
@@ -204,7 +204,7 @@ void TaskControlLED(void *pvParameters) {
       }
 
       FastLED.setBrightness((int)brightness);
-      client.publish("brillo",(char *) data_MQTT);  //Publica
+      client.publish("brillo",(char *) data_MQTT);  //Public for APP Dashboard
     }
 
     FastLED.show();
